@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <title>EzPark - Online Parking System</title>
+    <script src="js/myscript.js"></script>
+    <script src="js/search.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50">
+
+    <header class="bg-white shadow-lg py-6">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="image/IMG.jpeg" width="100" height="50" class="rounded-lg">
+                <h3 class="text-2xl font-bold text-blue-600">Ez-<span class="text-green-600">Park</span></h3>
+            </div>
+
+            <nav class="space-x-8 text-lg font-medium text-gray-800">
+                <a href="Home.html" class="hover:text-blue-600 transition duration-300">HOME</a>
+                <a href="Help.html" class="hover:text-blue-600 transition duration-300">HELP</a>
+                <a href="Info.html" class="hover:text-blue-600 transition duration-300">ABOUT</a>
+            </nav>
+
+            <div class="flex space-x-6">
+                <a href="login.html"
+                    class="btn text-blue-500 border border-blue-500 py-2 px-6 rounded-full hover:bg-blue-500 hover:text-white transition">Log
+                    in</a>
+                <a href="SignIn.html"
+                    class="btn bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-600 transition">Sign up</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-cover bg-center min-h-[60vh] flex justify-center items-center"
+        style="background-image: url('image/DD.png');">
+        <div class="bg-blue-600 p-2 rounded-full flex items-center space-x-4 shadow-lg">
+            <div class="text-white text-2xl">
+                <i class="fas fa-search"></i>
+            </div>
+            <input type="text"
+                class="p-4 pl-5 text-white bg-blue-600 rounded-full outline-none placeholder-white w-80" id="search"
+                onchange="openpage()" placeholder="What are you looking for?">
+        </div>
+    </section>
+
+    <section class="container mx-auto py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 ">
+        <a href="Info.html">
+            <button
+                class="bg-blue-500 text-white py-4 px-8 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300 w-full">
+                GENERAL INFORMATION
+            </button>
+        </a>
+        <a href="FAQ.html">
+            <button
+                class="bg-yellow-500 text-white py-4 px-8 rounded-lg shadow-lg hover:bg-yellow-600 transition duration-300 w-full">
+                FREQUENTLY ASKED QUESTIONS
+            </button>
+        </a>
+        <a href="Contact Us.html">
+            <button
+                class="bg-red-500 text-white py-4 px-8 rounded-lg shadow-lg hover:bg-red-600 transition duration-300 w-full">
+                CONTACT US
+            </button>
+        </a>
+    </section>
+
+     <!-- Footer Section -->
+     <footer class="bg-white py-16 mt-20 shadow-lg">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- App Stores -->
+            <div class="space-y-6 text-center">
+                <h4 class="text-xl font-semibold text-gray-700">GET OUR APP</h4>
+                <div class="space-y-4">
+                    <a href="https://play.google.com/store/apps" aria-label="Google Play">
+                        <img src="image/play.png" alt="Google Play" class="w-40 mx-auto">
+                    </a>
+                    <a href="https://www.apple.com/app-store/" aria-label="App Store">
+                        <img src="image/apps.png" alt="App Store" class="w-40 mx-auto">
+                    </a>
+                </div>
+                <p class="text-sm text-gray-600">Ezpark © 2023. All Rights Reserved</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="space-y-6 text-center md:text-left">
+                <h4 class="text-xl font-semibold text-gray-700">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="Home.html" class="text-blue-500 hover:underline block">HOME</a></li>
+                    <li><a href="Contact-Us.html" class="text-blue-500 hover:underline block">CONTACT US</a></li>
+                    <li><a href="Info.html" class="text-blue-500 hover:underline block">ABOUT</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="space-y-6 text-center">
+                <h4 class="text-xl font-semibold text-gray-700">Follow Us</h4>
+                <div class="flex space-x-4 justify-center">
+                    <a href="https://www.facebook.com" class="text-blue-600 hover:text-blue-800 text-2xl" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://gmail.com" class="text-red-600 hover:text-red-800 text-2xl" aria-label="Email">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="https://www.instagram.com" class="text-pink-600 hover:text-pink-800 text-2xl" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Logo & Payment -->
+            <div class="text-center space-y-4">
+                <img src="image/IMG.jpeg" alt="EzPark Logo" class="mx-auto mb-4" width="100" height="50">
+                <a href="https://visa.com" aria-label="Visa">
+                    <img src="image/visa.png" alt="Visa" class="w-48 mx-auto">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a href="#" class="fixed bottom-5 right-5 bg-pink-600 rounded-full p-4 shadow-lg hover:bg-pink-700 transition" aria-label="Scroll to top">
+        <img src="image/arrow.png" alt="Up arrow" class="w-5 h-5">
+    </a>
+
+</body>
+</html>

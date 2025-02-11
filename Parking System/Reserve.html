@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Example of minimal custom CSS if needed */
+        .logo-ezpark {
+            font-family: 'Montserrat', sans-serif; /* Example font, replace as desired */
+        }
+        .container {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+
+    <header class="bg-white border-b border-gray-200">
+        <div class="container mx-auto px-6 py-6 flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="image/IMG.jpeg" alt="Logo" class="h-10 w-auto mr-3">
+                <h1 class="text-xl font-semibold text-blue-700 logo-ezpark">Ez<span class="text-gray-800">-Park</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-gray-600">
+                <a href="AHome.html" class="hover:text-blue-500 transition-colors duration-200">Home</a>
+                <a href="Help.html" class="hover:text-blue-500 transition-colors duration-200">Help</a>
+                <a href="#" class="hover:text-blue-500 transition-colors duration-200">About</a>
+            </nav>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="login.php" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">Log in</a>
+                <a href="singup.php" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200">Sign up</a>
+                <img src="image/logo.png" alt="User Logo" class="h-10 w-10 rounded-full ml-2 border border-gray-200">
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+            <div class="bg-white shadow-lg rounded-xl p-8">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Monthly Subscription Benefits</h2>
+                    <p class="text-gray-700 leading-relaxed">Unlock exclusive parking privileges with our monthly subscription, designed for your convenience and peace of mind.</p>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-4">Key Advantages</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                        <li><span class="font-semibold text-gray-800">Guaranteed Parking Spot:</span>  Never worry about finding parking again. Your spot is always reserved.</li>
+                        <li><span class="font-semibold text-gray-800">Cost-Effective:</span>  Enjoy significantly reduced rates compared to daily parking fees.</li>
+                        <li><span class="font-semibold text-gray-800">24/7 Access:</span> Park anytime, day or night, within your subscription period.</li>
+                        <li><span class="font-semibold text-gray-800">Hassle-Free Entry & Exit:</span>  Seamless access with your digital parking pass.</li>
+                        <li><span class="font-semibold text-gray-800">Priority Support:</span> Dedicated customer service for monthly subscribers.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Important Information</h3>
+                    <ol class="list-decimal pl-5 text-gray-700 leading-relaxed">
+                        <li class="mb-3">Your monthly parking activates immediately upon successful payment and subscription registration. Your parking pass, issued on registration day, is valid for 30 days. Monthly renewal is required for continued subscription benefits.</li>
+                        <li class="mb-3"> <span class="italic font-semibold text-red-500">*Subscription Policy:*</span> Monthly subscriptions cannot be cancelled before the next renewal date.</li>
+                        <li class="mb-3">Monthly fees are calculated based on selected parking hours and vehicle type. Note that fees vary depending on your vehicle category.</li>
+                        <li class="mb-3">A 5% service fee applies to all monthly subscriptions to support website maintenance and service enhancements.</li>
+                        <li class="mb-3">We advise subscribing 3-4 business days before your desired start date to ensure timely processing of your monthly parking access.</li>
+                        <li>For further assistance or inquiries, please do not hesitate to contact our dedicated support service center.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-xl p-8">
+                <form action="montly.html" method="POST" class="space-y-6">
+                    <div>
+                        <h2 class="text-xl font-semibold text-gray-800 mb-4">Monthly Subscription Details</h2>
+                        <p class="text-gray-600 mb-4">Please select your subscription period and payment details below.</p>
+                    </div>
+
+                    <div>
+                      <label for="cards" class="block text-sm font-medium text-gray-700 mb-2">Accepted Payment Cards</label><br>
+
+                      <div class="flex space-x-20">
+                          <img src="image/visa.png" alt="Visa" class="h-16 w-auto gap-4" />
+                          <img src="image/mastercard.png" alt="Mastercard" class="h-16 w-auto gap-4" />
+                          <img src="image/paypal.png" alt="Paypal" class="h-16 w-auto gap-4" />
+                          <img src="image/discover.png" alt="Discover" class="h-16 w-auto gap-4" />
+                      </div>
+                  </div>
+<br><br>
+                    <div>
+                        <label for="period" class="block text-sm font-medium text-gray-700 mb-2">Reservation Period</label><br>
+                        <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <label for="start" class="block text-gray-700 text-xs font-bold mb-1">Starting Date</label><br>
+                                <input type="date" name="start" id="start" class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" required><br>
+                            </div>
+                            <div class="w-1/2">
+                                <label for="end" class="block text-gray-700 text-xs font-bold mb-1">End Date</label><br>
+                                <input type="date" name="end" id="end" class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" required><br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <label for="starttime" class="block text-gray-700 text-xs font-bold mb-1">Starting Time</label><br>
+                                <input type="time" name="starttime" id="starttime" class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" required><br>
+                            </div>
+                            <div class="w-1/2">
+                                <label for="endtime" class="block text-gray-700 text-xs font-bold mb-1">Ending Time</label><br>
+                                <input type="time" name="endtime" id="endtime" class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md" required><br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Continue to Payment</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-gray-100 border-t border-gray-200 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="footer-col">
+                    <h4 class="text-lg font-semibold text-gray-700 mb-5">GET US ON</h4>
+                    <ul>
+                        <li class="mb-3">
+                            <a href="https://play.google.com/store/apps" class="inline-block hover:opacity-80 transition-opacity duration-200">
+                                <img src="image/play.png" alt="Play Store" class="h-12 w-auto">
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="https://www.apple.com/app-store/" class="inline-block hover:opacity-80 transition-opacity duration-200">
+                                <img src="image/apps.png" alt="App Store" class="h-12 w-auto">
+                            </a>
+                        </li>
+                    </ul>
+                     <p class="text-gray-500 text-xs mt-5">Ezpark.2024.All Rights Reserved</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="text-lg font-semibold text-gray-700 mb-5">Quick-links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="AHome.html" class="text-gray-600 hover:text-blue-500 transition-colors duration-200">Home</a></li>
+                        <li><a href="Contact Us.html" class="text-gray-600 hover:text-blue-500 transition-colors duration-200">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-500 transition-colors duration-200">About</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="text-lg font-semibold text-gray-700 mb-5">Follow Us</h4>
+                    <div class="flex space-x-4">
+                      <ul>
+                        <li class="mb-3">
+                          <a href="https://www.facebook.com/login.php" class="inline-block hover:opacity-80 transition-opacity duration-200">
+                              <img src="image/fb.png" alt="Play Store" class="h-12 w-auto">
+                          </a>
+                      </li>
+                      <li class="mb-3">
+                          <a href="https://accounts.google.com/login?service=mail&lp=1" class="inline-block hover:opacity-80 transition-opacity duration-200">
+                              <img src="image/Google.png" alt="App Store" class="h-12 w-auto">
+                          </a>
+                      </li>
+                      <li class="mb-3">
+                        <a href="https://www.instagram.com/accounts/login" class="inline-block hover:opacity-80 transition-opacity duration-200">
+                            <img src="image/instagram.jpg" alt="App Store" class="h-8 w-auto">
+                        </a>
+                    </li>
+                      </ul>
+                      
+                       
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <div class="flex flex-col items-start">
+                        <img src="image/IMG.jpeg" alt="Footer Logo" class="h-10 w-auto mb-4">
+                        <a href="https://sdg2.mastercard.com" class="inline-block hover:opacity-80 transition-opacity duration-200">
+                            <img src="image/card.png" alt="Card" class="h-12 w-auto">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow mt-8 text-right">
+                <a href="index.html" class="inline-block hover:opacity-80 transition-opacity duration-200">
+                    <img src="image/arrow.png" alt="Back to top" class="h-8 w-auto">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/your_fontawesome_kit.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

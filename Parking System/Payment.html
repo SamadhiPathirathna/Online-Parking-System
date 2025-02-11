@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form | Ez-Park</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+
+        .error {
+            display: none;
+            color: #ff2851;
+            font-size: 0.875rem; /* 14px */
+            margin-top: 0.25rem; /* 4px */
+        }
+
+        .input-icon {
+            position: relative;
+        }
+
+        .input-icon i {
+            position: absolute;
+            left: 0.75rem; /* 12px */
+            top: 50%;
+            transform: translateY(-50%);
+            color: #60b4df;
+        }
+
+        .input-icon input {
+            padding-left: 2.5rem; /* 40px */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans antialiased">
+    <header class="bg-gradient-to-r from-teal-600 to-blue-700 shadow-md">
+        <nav class="container mx-auto px-6 py-3 lg:py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="image/IMG.jpeg" alt="Logo" class="w-12 h-12 rounded-lg">
+                <a href="Home.html" class="text-2xl font-bold text-white hover:text-yellow-300 transition duration-300">Ez-<span
+                        class="text-yellow-300">Park</span></a>
+            </div>
+
+            <div class="hidden lg:flex space-x-8 text-white">
+                <a href="Home.html" class="hover:text-yellow-300 transition duration-300">Home</a>
+                <a href="Help.html" class="hover:text-yellow-300 transition duration-300">Help</a>
+                <a href="Info.html" class="hover:text-yellow-300 transition duration-300">About</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="login.php"
+                    class="px-4 py-2 text-white border border-white rounded-md hover:bg-white hover:text-teal-700 transition duration-300">Login</a>
+                <a href="singup.php"
+                    class="px-4 py-2 bg-yellow-300 text-teal-700 rounded-md hover:bg-yellow-400 hover:text-teal-700 font-semibold transition duration-300">Sign
+                    Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto mt-24 p-6 lg:p-8">
+        <div class="lg:grid lg:grid-cols-7 lg:gap-8">
+            <div class="lg:col-span-5">
+                <div class="bg-white shadow-md rounded-lg p-6 lg:p-8 fade-in hover-scale mb-8">
+                    <form method="POST" action="connect.php" id="form">
+                        <div class="mb-6">
+                            <h2 class="text-2xl font-bold text-teal-800 mb-4">Your Information</h2>
+                            <p class="text-gray-700 text-sm mb-4">
+                                <a href="login.php" class="text-blue-500 hover:underline">Already have an EzPark Account? Sign in</a>
+                            </p>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="fname" class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
+                            <div class="input-icon">
+                                <i class="fa fa-user"></i>
+                                <input type="text" id="fname" name="fullname"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+                            <div class="input-icon">
+                                <i class="fa fa-envelope"></i>
+                                <input type="email" id="email" name="email" placeholder="abc@email.com"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    oninput="emailchecker()" required>
+                            </div>
+                            <div id="icon" class="absolute right-3 top-1/2 transform -translate-y-1/2" style="display: none;"></div>
+                            <p id="error-msg" class="error">Please Enter A Valid Email Address</p>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="phonenum" class="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
+                            <div class="input-icon">
+                                <i class="fa fa-mobile"></i>
+                                <input type="tel" id="phonenum" name="phonenum"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    oninput="phonechecker()" required>
+                            </div>
+                            <div id="icon2" class="absolute right-3 top-1/2 transform -translate-y-1/2" style="display: none;"></div>
+                            <p id="error-msg2" class="error">Please Enter A Valid Phone Number</p>
+                        </div>
+
+                        <div class="mb-8">
+                            <label for="pcode" class="block text-gray-700 text-sm font-bold mb-2">Postal Code (Optional)</label>
+                            <div class="input-icon">
+                                <i class="fa fa-map-pin"></i>
+                                <input type="text" id="pcode" name="pcode"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                            <h3 class="text-xl font-bold text-teal-800 mb-6">Payment Information</h3>
+                            <div class="mb-4">
+                                <label for="cards" class="block text-gray-700 text-sm font-bold mb-2">Accepted Payment Cards</label>
+                                <div class="flex space-x-4 mb-4">
+                                    <div>
+                                        <input type="radio" name="card" value="Visa" id="ccard" class="mr-2">
+                                        <label for="ccard" class="inline-flex items-center"><i class="fa fa-cc-visa text-blue-600 text-2xl mr-1"></i> Visa</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="card" value="Mastercard" id="mcard" class="mr-2">
+                                        <label for="mcard" class="inline-flex items-center"><i class="fa fa-cc-mastercard text-red-600 text-2xl mr-1"></i> Mastercard</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="card" value="Paypal" id="paypal" class="mr-2">
+                                        <label for="paypal" class="inline-flex items-center"><i class="fa fa-cc-paypal text-navy-600 text-2xl mr-1"></i> Paypal</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="card" value="Discover" id="discover" class="mr-2">
+                                        <label for="discover" class="inline-flex items-center"><i class="fa fa-cc-discover text-orange-600 text-2xl mr-1"></i> Discover</label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="cname" class="block text-gray-700 text-sm font-bold mb-2">Name on Card</label>
+                                    <input type="text" id="cname" name="creditcardname" placeholder="Enter your name"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        required>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="crdnum" class="block text-gray-700 text-sm font-bold mb-2">Credit Card Number</label>
+                                    <input type="text" id="crdnum" name="creditcardnumber" placeholder="xxxx-xxxx-xxxx-xxxx"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        oninput="cardchecker()" required>
+                                    <div id="icon3" class="absolute right-3 top-1/2 transform -translate-y-1/2" style="display: none;"></div>
+                                    <p id="error-msg3" class="error">Please Enter A Valid Card Number</p>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="expdate" class="block text-gray-700 text-sm font-bold mb-2">Expiration Date</label>
+                                        <input type="text" id="expdate" name="expdate" placeholder="MM/YY"
+                                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                            required>
+                                    </div>
+                                    <div>
+                                        <label for="cvv" class="block text-gray-700 text-sm font-bold mb-2">CVV</label>
+                                        <input type="text" id="cvv" name="cvv" placeholder="xxx"
+                                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                            oninput="cvvchecker()" required>
+                                        <div id="icon4" class="absolute right-3 top-1/2 transform -translate-y-1/2" style="display: none;"></div>
+                                        <p id="error-msg4" class="error">Please Enter A Valid CVV</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-6 mt-8 flex items-center">
+                            <input type="checkbox" id="terms" class="mr-2">
+                            <label for="terms" class="text-gray-700 text-sm font-bold">I accept the <a href="www.google.com"
+                                    class="text-blue-500 hover:underline">Terms of service & privacy policy conditions</a></label>
+                        </div>
+
+                        <div class="mb-6">
+                            <p class="text-red-600 text-sm font-bold flex items-center"><i class="fas fa-ban mr-2"></i> No Cancellation: Monthly Subscriptions cannot be cancelled before end of due date.</p>
+                        </div>
+
+                        <button type="submit" name="submit"
+                            class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 w-full">
+                            Proceed to Checkout
+                        </button>
+
+                        <div class="mt-4 flex items-center justify-center">
+                            <i class="fa fa-lock text-gray-500 mr-2"></i>
+                            <label class="text-gray-700 text-sm font-bold">SSL Secure Checkout</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2">
+                <div class="bg-white shadow-md rounded-lg p-6 lg:p-8 fade-in hover-scale">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-bold text-teal-800 mb-3">Your Reservation Summary</h3>
+                        <div class="py-2 border-b border-gray-200">
+                            <p class="flex justify-between text-gray-700">
+                                <span>Reservation 1: Location ID .....</span>
+                                <span class="font-semibold">LKR 00.00</span>
+                            </p>
+                        </div>
+                        <div class="py-2 border-b border-gray-200">
+                            <p class="flex justify-between text-gray-700">
+                                <span>Service Fee (10%)</span>
+                                <span class="font-semibold">LKR 0.00</span>
+                            </p>
+                        </div>
+                        <div class="mt-4 py-2">
+                            <p class="flex justify-between text-lg font-semibold text-teal-800">
+                                <span>Total</span>
+                                <span class="font-bold">LKR 000.00</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="Mcheap.html" class="inline-flex items-center text-sm text-blue-500 hover:underline">
+                             <i class="fa fa-plus mr-2 text-xs text-cornflowerblue"></i> Add More Reservations...
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gradient-to-r from-teal-700 to-blue-800 text-white py-12 lg:py-16 mt-12">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16">
+                <div class="space-y-6">
+                    <h4 class="text-lg font-semibold mb-4 text-gray-100">Get Our App</h4>
+                    <div class="space-y-3">
+                        <a href="https://play.google.com/store/apps" class="block">
+                            <img src="image/play.png" alt="Google Play" class="w-40 hover-scale rounded-md">
+                        </a>
+                        <a href="https://www.apple.com/app-store/" class="block">
+                            <img src="image/apps.png" alt="App Store" class="w-40 hover-scale rounded-md">
+                        </a>
+                    </div>
+                    <p class="text-gray-300 text-sm mt-4">Ezpark.2024. All Rights Reserved.</p>
+                </div>
+
+                <div class="space-y-6">
+                    <h4 class="text-lg font-semibold mb-4 text-gray-100">Quick Links</h4>
+                    <div class="space-y-3">
+                        <a href="Home.html" class="block hover:text-yellow-300 transition duration-300 text-gray-200">Home</a>
+                        <a href="Contact Us.html" class="block hover:text-yellow-300 transition duration-300 text-gray-200">Contact Us</a>
+                        <a href="#" class="block hover:text-yellow-300 transition duration-300 text-gray-200">About Us</a>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h4 class="text-lg font-semibold mb-4 text-gray-100">Follow Us</h4>
+                    <div class="flex space-x-5">
+                        <a href="https://facebook.com" class="text-2xl hover:text-yellow-300 transition duration-300 text-gray-200">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com" class="text-2xl hover:text-yellow-300 transition duration-300 text-gray-200">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com" class="text-2xl hover:text-yellow-300 transition duration-300 text-gray-200">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <img src="image/IMG.jpeg" alt="Logo" class="w-24 mb-4 rounded-lg shadow-md">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm text-gray-200">Secure payments with</span>
+                        <img src="image/card.png" alt="Payment Methods" class="w-32">
+                    </div>
+                    <p class="text-gray-300 mt-4 text-sm">
+                        EzPark is revolutionizing parking with smart, secure, and seamless solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Email validation
+        let emailId = document.getElementById("email");
+        let errorMsg = document.getElementById("error-msg");
+        let icon = document.getElementById("icon");
+        let mailRegex = /^[a-zA-Z][a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}$/;
+
+        function emailchecker() {
+            icon.style.display = "inline-block";
+            if (emailId.value.match(mailRegex)) {
+                icon.innerHTML = '<i class="fas fa-check-circle"></i>';
+                icon.style.color = 'rgb(52, 211, 153)'; /* Tailwind green-400 */
+                errorMsg.style.display = 'none';
+                emailId.classList.remove('border-red-500');
+                emailId.classList.add('border-green-500');
+            } else if (emailId.value == "") {
+                icon.style.display = 'none';
+                errorMsg.style.display = 'none';
+                emailId.classList.remove('border-red-500', 'border-green-500');
+            } else {
+                icon.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+                icon.style.color = '#ff2851';
+                errorMsg.style.display = 'block';
+                emailId.classList.remove('border-green-500');
+                emailId.classList.add('border-red-500');
+            }
+        }
+
+        // Phone validation
+        let phonenum = document.getElementById("phonenum");
+        let errorMsg2 = document.getElementById("error-msg2");
+        let icon2 = document.getElementById("icon2");
+        let phoneno = /^\d{10}$/;
+
+        function phonechecker() {
+            icon2.style.display = "inline-block";
+            if (phonenum.value.match(phoneno)) {
+                icon2.innerHTML = '<i class="fas fa-check-circle"></i>';
+                icon2.style.color = 'rgb(52, 211, 153)'; /* Tailwind green-400 */
+                errorMsg2.style.display = 'none';
+                phonenum.classList.remove('border-red-500');
+                phonenum.classList.add('border-green-500');
+            } else if (phonenum.value == "") {
+                icon2.style.display = 'none';
+                errorMsg2.style.display = 'none';
+                phonenum.classList.remove('border-red-500', 'border-green-500');
+            } else {
+                icon2.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+                icon2.style.color = '#ff2851';
+                errorMsg2.style.display = 'block';
+                phonenum.classList.remove('border-green-500');
+                phonenum.classList.add('border-red-500');
+            }
+        }
+
+        // Card number validation
+        let card = document.getElementById("crdnum");
+        let errorMsg3 = document.getElementById("error-msg3");
+        let icon3 = document.getElementById("icon3");
+        let cardno = /^\d{16}$/;
+
+        function cardchecker() {
+            icon3.style.display = "inline-block";
+            if (card.value.match(cardno)) {
+                icon3.innerHTML = '<i class="fas fa-check-circle"></i>';
+                icon3.style.color = 'rgb(52, 211, 153)'; /* Tailwind green-400 */
+                errorMsg3.style.display = 'none';
+                card.classList.remove('border-red-500');
+                card.classList.add('border-green-500');
+            } else if (card.value == "") {
+                icon3.style.display = 'none';
+                errorMsg3.style.display = 'none';
+                card.classList.remove('border-red-500', 'border-green-500');
+            } else {
+                icon3.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+                icon3.style.color = '#ff2851';
+                errorMsg3.style.display = 'block';
+                card.classList.remove('border-green-500');
+                card.classList.add('border-red-500');
+            }
+        }
+
+        // CVV validation
+        let cvvc = document.getElementById("cvv");
+        let errorMsg4 = document.getElementById("error-msg4");
+        let icon4 = document.getElementById("icon4");
+        let cvvno = /^\d{3}$/;
+
+        function cvvchecker() {
+            icon4.style.display = "inline-block";
+            if (cvvc.value.match(cvvno)) {
+                icon4.innerHTML = '<i class="fas fa-check-circle"></i>';
+                icon4.style.color = 'rgb(52, 211, 153)'; /* Tailwind green-400 */
+                errorMsg4.style.display = 'none';
+                cvvc.classList.remove('border-red-500');
+                cvvc.classList.add('border-green-500');
+            } else if (cvvc.value == "") {
+                icon4.style.display = 'none';
+                errorMsg4.style.display = 'none';
+                cvvc.classList.remove('border-red-500', 'border-green-500');
+            } else {
+                icon4.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+                icon4.style.color = '#ff2851';
+                errorMsg4.style.display = 'block';
+                cvvc.classList.remove('border-green-500');
+                cvvc.classList.add('border-red-500');
+            }
+        }
+    </script>
+</body>
+
+</html>

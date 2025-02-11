@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="js/myscript.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>FAQ</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Header */
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #60b4df;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 100px auto 50px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .faq-search {
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Accordion Style */
+        .faq {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #ecf0f1;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 15px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .arrow-icon {
+            transition: transform 0.3s;
+        }
+
+        .active .faq-answer {
+            display: block;
+        }
+
+        .active .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            margin-top: 50px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation Header -->
+<header class="header">
+    <div class="nav">
+        <div class="logo">Ez-Park</div>
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Help.html">Help</a></li>
+            <li><a href="Info.html">About</a></li>
+            <li><a href="login.html">Log in</a></li>
+            <li><a href="SignIn.html">Sign up</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- FAQ Section -->
+<div class="faq-container">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    
+    <input type="text" id="faqSearch" class="faq-search" placeholder="Search FAQs...">
+    
+    <div class="faq">
+        <div class="faq-question">
+            <span>Will I have a place allocated with a Parclick reservation?</span>
+            <i class="fas fa-chevron-down arrow-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Yes, when you reserve with Parclick, a parking space is guaranteed for you.</p>
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="faq-question">
+            <span>How can I find out if a car park is secure?</span>
+            <i class="fas fa-chevron-down arrow-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Our platform provides security details for each parking location, including surveillance cameras and 24/7 security.</p>
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="faq-question">
+            <span>Do I have to leave my keys in the car park?</span>
+            <i class="fas fa-chevron-down arrow-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p>No, most locations allow you to keep your keys, but some valet services require it.</p>
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="faq-question">
+            <span>Can I access a car park with a trailer, luggage rack, or bicycle rack?</span>
+            <i class="fas fa-chevron-down arrow-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Some parking spots allow trailers, but it depends on size restrictions. Please check in advance.</p>
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="faq-question">
+            <span>Is it possible to reserve parking spaces for persons with reduced mobility (PRM)?</span>
+            <i class="fas fa-chevron-down arrow-icon"></i>
+        </div>
+        <div class="faq-answer">
+            <p>Yes, we provide accessible parking spaces. Please mention PRM requirements while booking.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 Ez-Park. All Rights Reserved.</p>
+    <div class="social-links">
+        <a href="https://www.facebook.com/login.php"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://accounts.google.com"><i class="fab fa-google"></i></a>
+        <a href="https://www.instagram.com/accounts/login"><i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
+
+<script>
+    // Accordion Functionality
+    document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+            question.parentElement.classList.toggle("active");
+        });
+    });
+
+    // FAQ Search Function
+    document.getElementById("faqSearch").addEventListener("input", function () {
+        let filter = this.value.toLowerCase();
+        let faqs = document.querySelectorAll(".faq");
+
+        faqs.forEach((faq) => {
+            let question = faq.querySelector(".faq-question span").innerText.toLowerCase();
+            if (question.includes(filter)) {
+                faq.style.display = "block";
+            } else {
+                faq.style.display = "none";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
